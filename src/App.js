@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.scss';
+import React,{useState, useEffect } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const API_KEY = process.env.REACT_APP_API_KEY  
+const API_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`
+
+function App(){
+    const [newsList, setNewsList] = useState([]);
+    useEffect(() => {
+            getNews();
+ }, []);
+   const getNews = () => {
+      fetch(API_URL)
+          .then(response => response.json())    
+          .then(data => setNewsList([...data.results]));
 }
+console.log(newsList);
+return (
+  
+   <div>
+    
+  </div>
+)
+;}
 
 export default App;
