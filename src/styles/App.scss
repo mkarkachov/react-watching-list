@@ -1,0 +1,17 @@
+#container{
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  min-width: 280px;
+}
+
+#movies{
+  display: flex;
+  flex-wrap: wrap;
+}
+.card{
+  width: 25%;
+  box-sizing: border-box;
+  padding: 0 15px;
+  margin-bottom: 15px;
+}
